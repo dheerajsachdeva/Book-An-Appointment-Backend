@@ -1,0 +1,23 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: caleb
+  password: 1234
+  host: localhost
+  port: 5433
+
+development:
+  <<: *default
+  database: book_appointment_backend_development
+
+test:
+  <<: *default
+  database: book_appointment_backend_test
+
+production:
+  <<: *default
+  database: book_appointment_backend_production
