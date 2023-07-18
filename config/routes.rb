@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
 
+  
+
+  devise_for :users, controllers: {
+    sessions: 'api/users/sessions',
+    registrations: 'api/users/registrations'
+  }
+
+  get 'current_user', to: 'members#index'
 
     namespace :api, defaults: { format: 'json' } do
-      resources :users
-     resources :products
+      resources :products
     resources :reservations
     end
 
