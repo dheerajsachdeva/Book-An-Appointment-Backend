@@ -2,6 +2,22 @@ class Api::ReservationsController < ApplicationController
       
     def index
       reserved = []
+      respond_to :json
+  
+    private
+  
+    def respond_with(resource, options = {})
+      if resource.persisted?
+        render json: {
+          status: { code: 200, message: 'Signed up sucessfully.' },
+          data: resource
+        }
+      else
+        render json: {
+          status: { message: "User couldn't be created successfully. #{resource.errors.full_messages.to_sentence}" }
+        }, status: :unprocessable_entity
+      end
+    end
       current_user.reservations.each do |reservation|
         reserved << {
             id: reservation.id,
