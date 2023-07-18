@@ -2,6 +2,7 @@ class Api::ReservationsController < ApplicationController
       
     def index
       reserved = []
+     
       current_user.reservations.each do |reservation|
         reserved << {
             id: reservation.id,
