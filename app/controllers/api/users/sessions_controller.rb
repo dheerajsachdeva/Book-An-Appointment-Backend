@@ -1,7 +1,7 @@
 class Api::Users::SessionsController < Devise::SessionsController
   # include RackSessionFixController
   respond_to :json
-
+  skip_before_action :verify_authenticity_token
   private
 
   def respond_with(resource, options = {})
@@ -26,6 +26,5 @@ class Api::Users::SessionsController < Devise::SessionsController
     }, status: :unauthorized
   end
   end
-  skip_before_action :verify_authenticity_token
-  
+    
 end
