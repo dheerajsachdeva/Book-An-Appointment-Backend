@@ -1,5 +1,6 @@
 class Api::ReservationsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token
     def index
       reserved = []
      
@@ -29,8 +30,9 @@ class Api::ReservationsController < ApplicationController
       end
     end
     def create
-    @reservation = current_user.Reservation.new(reservation_params)
-    if @reservation.present?
+    @reservation = current_user.reservations.new(reservation_params)
+
+    if @reservation.save
         render json: { status: 'Success', message: 'Loaded Reservation', data: @reservation }, status: :ok
       else
         render json: { status: 'Not Found', message: 'Reservations not found', data: @reservation.errors },
@@ -57,13 +59,12 @@ class Api::ReservationsController < ApplicationController
     end
     private
     def reservation_params
-        params.require(:reservation).permit(:date, :city, :user_id, :product_id)
+        params.require(:reservation).permit(:date, :city, :product_id)
     end
       
     def current_user
-      jwt_payload = JWT.decode(request.headers['Authorization'].split[1],
-                               ENV.fetch('DEVISE_JWT_SECRET_KEY', nil)).first
-      User.find(jwt_payload['sub'])
+      jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1], Rails.application.credentials.fetch(:secret_key_base)).first
+            User.find(jwt_payload['sub'])
     end
     
   end

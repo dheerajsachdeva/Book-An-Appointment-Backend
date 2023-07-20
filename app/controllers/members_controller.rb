@@ -11,4 +11,12 @@ class MembersController < ApplicationController
 
   end
 
+  private
+
+  def current_user
+    jwt_payload = JWT.decode(request.headers['Authorization'].split[1],
+                             ENV.fetch('DEVISE_JWT_SECRET_KEY', nil)).first
+    User.find(jwt_payload['sub'])
+  end
+
 end
