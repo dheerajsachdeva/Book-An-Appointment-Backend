@@ -1,7 +1,9 @@
 class Api::ProductsController < ApplicationController
-  protect_from_forgery unless: :create
-  before_action :get_product
-  before_action :body_data
+  skip_before_action :verify_authenticity_token
+  # before_action :get_product
+  # before_action :body_data
+
+  # protect_from_forgery unless: :create
 
   def index
     @products = Product.all
@@ -19,7 +21,7 @@ class Api::ProductsController < ApplicationController
     item = request.content_type == "application/json" ? request.raw_post : "{}"
     @product = Product.new(JSON.parse(item))
     if @product.save
-      render json: { message: "Product creation successful" }, status: :created
+      render json: { status: :created }
       return
     end
   end
