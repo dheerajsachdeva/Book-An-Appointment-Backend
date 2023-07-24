@@ -85,7 +85,7 @@ In order to run this project you need:
 
 ```sh
   git
- bundle
+ bundle install
  Your favorite text editor
 ```
 
