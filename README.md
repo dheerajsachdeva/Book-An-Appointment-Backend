@@ -34,7 +34,7 @@
   <summary>Server</summary>
   <ul>
     <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
-    <li><a href="https://rubyonrails.org/">Rails</a></li>
+    <li><a href="https://www.rubyonrails.org/">Rails</a></li>
   </ul>
 </details>
 
@@ -63,7 +63,7 @@
 
 ## 🪵 Link to Frontend <a name="key-features"></a>
 
-- [Backend]( https://github.com/calebchris000/Book-An-Appointment-Frontend)
+- [Frontend]( https://github.com/calebchris000/Book-An-Appointment-Frontend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
