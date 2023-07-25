@@ -19,7 +19,7 @@ class Api::ProductsController < ApplicationController
     item = request.content_type == "application/json" ? request.raw_post : "{}"
     @product = Product.new(JSON.parse(item))
     if @product.save
-      render json: { message: "Product creation successful" }, status: :created
+      render json: { status: :created }
       return
     end
   end
