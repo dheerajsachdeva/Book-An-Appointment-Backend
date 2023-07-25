@@ -5,6 +5,10 @@ ruby "3.2.2"
 gem 'devise'
 gem 'devise-jwt'
 gem 'rack-cors'
+gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
+gem 'rspec-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"

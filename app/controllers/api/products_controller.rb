@@ -3,8 +3,6 @@ class Api::ProductsController < ApplicationController
   # before_action :get_product
   # before_action :body_data
 
-  # protect_from_forgery unless: :create
-
   def index
     @products = Product.all
     render json: @products
