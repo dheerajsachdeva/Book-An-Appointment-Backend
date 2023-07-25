@@ -1,0 +1,103 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/products":
+    get:
+      summary: Retrieves all the Cars
+      tags:
+      - Cars
+      responses:
+        '200':
+          description: cars list
+  "/api/products/{id}":
+    get:
+      summary: Retrieves a Car
+      tags:
+      - Cars
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Car
+    delete:
+      summary: Delete a car
+      tags:
+      - Cars
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Car
+  "/api/reservations":
+    get:
+      summary: Get Reserved Cars for Current User
+      tags:
+      - Reservation
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: cars list
+    post:
+      summary: Reserve car for current user
+      tags:
+      - Reservation
+      security:
+      - bearer_auth: []
+      parameters: []
+      responses:
+        '200':
+          description: Reservation created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservations:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    date:
+                      type: string
+                    product_id:
+                      type: number
+                  required:
+                  - city
+                  - date
+                  - product_id
+              required:
+              - reservations
+  "/api/reservations/{id}":
+    delete:
+      summary: Delete a Reservation
+      tags:
+      - Reservation
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Reservation Deleted
+servers:
+- url: http://127.0.0.1:3001
+  variables:
+    defaultHost:
+      default: http://127.0.0.1:3001

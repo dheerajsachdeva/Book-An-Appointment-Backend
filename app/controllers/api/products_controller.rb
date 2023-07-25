@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
-  protect_from_forgery unless: :create
-  before_action :get_product
-  before_action :body_data
+  skip_before_action :verify_authenticity_token
+  # before_action :get_product
+  # before_action :body_data
 
   def index
     @products = Product.all

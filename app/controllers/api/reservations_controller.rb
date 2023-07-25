@@ -50,11 +50,17 @@ class Api::ReservationsController < ApplicationController
     end
     def destroy
         @reservation = Reservation.find(params[:id])
-        if @reservation.empty?
-            render json: { status: 'Not Found', message: 'Reservations not found', data: @reservation.errors },
-                   status: :unprocessable_entity
-        else @reservation.destroy
-                   render json: { status: 'Success', message: 'Deleted Reservation'}, status: :ok
+        # if @reservation.empty?
+        #     render json: { status: 'Not Found', message: 'Reservations not found', data: @reservation.errors },
+        #            status: :unprocessable_entity
+        # else @reservation.destroy
+        #            render json: { status: 'Success', message: 'Deleted Reservation'}, status: :ok
+        #   end
+          if @reservation
+            @reservation.destroy
+            render json: { status: 'Success', message: 'Deleted Reservation' }, status: :ok
+          else
+            render json: { status: 'Not Found', message: 'Reservation not found' }, status: :not_found
           end
     end
     private
