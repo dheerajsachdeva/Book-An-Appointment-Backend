@@ -9,7 +9,6 @@ gem 'rspec-rails'
 gem 'rswag'
 gem 'rswag-api'
 gem 'rswag-ui'
-gem 'rspec-rails'
 gem 'rubocop'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.6'
