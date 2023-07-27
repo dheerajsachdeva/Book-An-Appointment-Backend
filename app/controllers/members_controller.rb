@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MembersController < ApplicationController
   before_action :authenticate_user!
 
@@ -5,10 +7,9 @@ class MembersController < ApplicationController
     if current_user
       render json: { status: 'Success', message: 'Current User', data: current_user }, status: :ok
     else
-      render json: { status: 'Failed', message: 'No user Login'},
+      render json: { status: 'Failed', message: 'No user Login' },
              status: :unprocessable_entity
     end
-
   end
 
   private
@@ -18,5 +19,4 @@ class MembersController < ApplicationController
                              ENV.fetch('DEVISE_JWT_SECRET_KEY', nil)).first
     User.find(jwt_payload['sub'])
   end
-
 end
