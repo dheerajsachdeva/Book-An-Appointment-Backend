@@ -51,10 +51,5 @@ module Api
       @request_body = request.content_type == 'application/json' ? request.raw_post : '{}'
       JSON.parse(@request_body)
     end
-
-    def get_product
-      @product = Product.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-    end
   end
 end

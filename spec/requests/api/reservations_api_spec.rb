@@ -1,6 +1,5 @@
 require 'swagger_helper'
 require 'devise/jwt/test_helpers'
-
 RSpec.describe 'Reservations/get', type: :request do
   before(:each) do
     @user = User.create(name: 'Test', email: 'test@example.com', password: 'password',
@@ -37,6 +36,7 @@ RSpec.describe 'Reservations/get', type: :request do
 end
 
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe 'Reservations/post', type: :request do
   before(:each) do
     @user = User.create(name: 'Test', email: 'test@example.com', password: 'password',
@@ -88,6 +88,7 @@ RSpec.describe 'Reservations/post', type: :request do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
 
 
 RSpec.describe 'Reservations/delete', type: :request do
