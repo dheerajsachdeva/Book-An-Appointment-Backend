@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'swagger_helper'
 require 'devise/jwt/test_helpers'
 

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Api
   class ReservationsController < ApplicationController
     before_action :authenticate_user!
@@ -73,7 +71,7 @@ module Api
     end
 
     def current_user
-      jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1],
+      jwt_payload = JWT.decode(request.headers['Authorization'].split[1],
                                Rails.application.credentials.fetch(:secret_key_base)).first
       User.find(jwt_payload['sub'])
     end
