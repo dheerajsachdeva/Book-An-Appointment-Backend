@@ -29,7 +29,6 @@ RSpec.describe 'Reservations/get', type: :request do
   end
 end
 
-
 RSpec.describe 'Reservations/post', type: :request do
   describe 'POST /api/reservations' do
     before(:each) do
