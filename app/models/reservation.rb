@@ -4,5 +4,4 @@ class Reservation < ApplicationRecord
 
   validates :date, presence: true
   validates :city, presence: true
-
 end

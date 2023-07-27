@@ -12,8 +12,4 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
-
-  def jwt_payload
-    super
-  end
 end
