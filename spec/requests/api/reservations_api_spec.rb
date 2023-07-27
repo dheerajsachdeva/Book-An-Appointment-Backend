@@ -35,7 +35,6 @@ RSpec.describe 'Reservations/get', type: :request do
   end
 end
 
-
 # rubocop:disable Metrics/BlockLength
 RSpec.describe 'Reservations/post', type: :request do
   before(:each) do
@@ -89,7 +88,6 @@ RSpec.describe 'Reservations/post', type: :request do
   end
 end
 # rubocop:enable Metrics/BlockLength
-
 
 RSpec.describe 'Reservations/delete', type: :request do
   before(:each) do
