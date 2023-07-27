@@ -82,8 +82,12 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   database: book_appointment_backend_production
+#   username: book_appointment_backend
+#   password: <%= ENV["BOOK_APPOINTMENT_BACKEND_DATABASE_PASSWORD"] %>
+
 production:
   <<: *default
-  database: book_appointment_backend_production
-  username: book_appointment_backend
-  password: <%= ENV["BOOK_APPOINTMENT_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
