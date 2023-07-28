@@ -110,8 +110,8 @@ Install this project with:
 ```sh
    cd Book-an-Appointment_back
   bundle install
-  rails: db:create 
-  rails: db:migrate
+  rails db:create 
+  rails db:migrate
 ```
 
 ### Usage
